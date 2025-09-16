@@ -66,4 +66,4 @@ intents.message_content = True
 #This calls it to run the server,
 client = MyClient(intents=intents)
 client.run('MTQxNTE3NzIzNDc4MzgwMTQwNw.G8g4xS.uHPdyGeIdAq9C2GqUSWad0yaF3PFvVSTqfgkmI') # Replace with your own token.
-
+#Make sure to keep your token private and safe!
