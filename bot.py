@@ -3,8 +3,6 @@
 #2. If someone needs help with the commands, they can use $help. The bot will responds with a list of commands
 #4. If someone says $bite @user, the bot will respond with either a snake biting gif or a nuzzel gif
 
-
-
 #import the discord library
 import discord
 import json
@@ -34,8 +32,31 @@ class MyClient(discord.Client):
       await message.channel.send('Ssss!(Hello!)')
     #If you tell the bot I love you it will respond back with a response and a cute snake image
     elif message.content.startswith('$Love you!'):
-      await message.channel.send("Sss!(I love you too!)")
+      await message.channel.send('Sss!(I love you too!)')
       await message.channel.send("https://i.pinimg.com/736x/8f/5a/0b/8f5a0b9787f745cfe0fe8974d860435c.jpg")
+    
+    elif message.content.startswith('$slither to {user}'.format(user=message.author.mention)):
+      await message.channel.send('Sss!(Slithering...) to : {user}'.format(user=message.author.mention))
+      await message.channel.send("https://tenor.com/view/snake-purple-snkae-cute-snake-gif-26014503")
+    
+    elif message.content.startswith('$bite {user}'.format(user=message.author.mention)):
+      await message.channel.send('Sss!(Biting...) : {user}'.format(user=message.author.mention))
+      await message.channel.send("https://tenor.com/view/snake-strike-rattle-gif-12291395")
+
+    elif message.content.startswith('$goodnight'):
+      await message.channel.send('Sss..(Goodnight!) : {user}'.format(user=message.author.mention))
+      await message.channel.send("https://tenor.com/view/點點-睡99-gif-17616746108318256175")
+
+    elif message.content.startswith('$goodmorning'):
+      await message.channel.send('Sss!(Goodmorning!) : {user}'.format(user=message.author.mention))
+      await message.channel.send("https://tenor.com/view/cute-snake-jawn-good-morning-wake-up-gif-17002140")
+
+    elif message.content.startswith('$fancy snake'):
+      await message.channel.send('Sss~(Tis I, a cute fancy snake~)')
+      await message.channel.send("https://tenor.com/view/snake-gif-1306923234310821986")
+
+    elif message.content.startswith('$help'):
+      await message.channel.send("Ssssss!(Here are the commands you can use: $meme, $hello, $Love you!, $slither, $bite, $goodnight, $goodmorning, $fancy snake)")
 
 #setting for what the bot can access in the server. Assigned the default behavior for the bot 
 # thus we have to make the bot message become true
