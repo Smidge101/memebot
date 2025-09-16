@@ -8,6 +8,14 @@ import discord
 import json
 import requests
 
+try:
+   with open("config.json", "r") as f:
+    config = json.load(f)
+    api_key = config.get("api_key")
+except FileNotFoundError:
+   print("Config file not found. Please ensure config.json exists.")
+   api_key = None
+
 def get_meme():
   response = requests.get('https://meme-api.com/gimme/snakememes') #You can change the subreddit to any subreddit you want
   json_data = json.loads(response.text)
@@ -65,5 +73,5 @@ intents.message_content = True
 
 #This calls it to run the server,
 client = MyClient(intents=intents)
-client.run('MTQxNTE3NzIzNDc4MzgwMTQwNw.G8g4xS.uHPdyGeIdAq9C2GqUSWad0yaF3PFvVSTqfgkmI') # Replace with your own token.
+client.run(api_key) # Replace with your own token.
 #Make sure to keep your token private and safe!
