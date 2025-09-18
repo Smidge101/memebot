@@ -1,7 +1,6 @@
 ##More stuff I want the bot to do:
-#1. If someone were to say $slither to @user the snake will respond with a slithering gif
-#2. If someone needs help with the commands, they can use $help. The bot will responds with a list of commands
-#4. If someone says $bite @user, the bot will respond with either a snake biting gif or a nuzzel gif
+#2. Figure out how to make the bot active 24/7
+#3. If someone says $bite @user, the bot will respond with either a snake biting gif or a nuzzel gif
 
 #import the discord library
 import discord
@@ -9,12 +8,17 @@ import json
 import requests
 
 try:
-   with open("config.json", "r") as f:
+   with open("bot.json", "r") as f:
     config = json.load(f)
     api_key = config.get("api_key")
+    if api_key:
+      print(f"API Key loaded: {api_key}")
+          # Use your API key here
+    else:
+      print("API Key not found in config.json.")
 except FileNotFoundError:
-   print("Config file not found. Please ensure config.json exists.")
-   api_key = None
+   print("config.json not found.")
+
 
 def get_meme():
   response = requests.get('https://meme-api.com/gimme/snakememes') #You can change the subreddit to any subreddit you want
